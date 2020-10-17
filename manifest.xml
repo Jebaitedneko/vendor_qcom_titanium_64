@@ -539,7 +539,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         </interface>
     </hal>
     <!-- WIGIG HAL service -->
-    <hal format="hidl">
+<!--    <hal format="hidl">
         <name>vendor.qti.hardware.wigig.supptunnel</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -556,9 +556,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>IEsePowerManager</name>
             <instance>default</instance>
         </interface>
-    </hal>
+    </hal>-->
     <!-- WIGIG network performance tuner service -->
-    <hal format="hidl">
+<!--    <hal format="hidl">
         <name>vendor.qti.hardware.wigig.netperftuner</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -566,7 +566,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>INetPerfTuner</name>
             <instance>default</instance>
         </interface>
-    </hal>
+    </hal>-->
     <!-- FST manager service -->
     <hal format="hidl">
         <name>vendor.qti.hardware.fstman</name>
@@ -614,7 +614,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     </hal>
 
     <!--  Soter service -->
-    <hal format="hidl">
+<!--    <hal format="hidl">
         <name>vendor.qti.hardware.soter</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -622,7 +622,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>ISoter</name>
             <instance>default</instance>
         </interface>
-    </hal>
+    </hal>-->
 
     <!-- Tether Offload -->
     <hal format="hidl">
@@ -676,7 +676,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         </interface>
     </hal>
     <!-- improveTouch Service-->
-    <hal format="hidl">
+<!--    <hal format="hidl">
         <name>vendor.qti.hardware.improvetouch.touchcompanion</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -684,5 +684,5 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>ITouchCompanion</name>
             <instance>TouchCompanionService</instance>
         </interface>
-    </hal>
+    </hal>-->
 </manifest>
