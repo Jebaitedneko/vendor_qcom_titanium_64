@@ -19,21 +19,23 @@ endif
 # Compile Linux Kernel
 #----------------------------------------------------------------------
 
-ifeq ($(KERNEL_DEFCONFIG),)
-    ifneq ($(wildcard kernel/msm-3.18),)
-        ifeq ($(TARGET_BUILD_VARIANT),user)
-          KERNEL_DEFCONFIG := msmcortex-perf_defconfig
-        else
-          KERNEL_DEFCONFIG := msmcortex_defconfig
-        endif
-    else ifneq ($(wildcard kernel/msm-4.9),)
-        ifeq ($(TARGET_BUILD_VARIANT),user)
-          KERNEL_DEFCONFIG := msm8953-perf_defconfig
-        else
-          KERNEL_DEFCONFIG := msm8953_defconfig
-        endif
-    endif
-endif
+# ifeq ($(KERNEL_DEFCONFIG),)
+#     ifneq ($(wildcard kernel/msm-3.18),)
+#         ifeq ($(TARGET_BUILD_VARIANT),user)
+#           KERNEL_DEFCONFIG := msmcortex-perf_defconfig
+#         else
+#           KERNEL_DEFCONFIG := msmcortex_defconfig
+#         endif
+#     else ifneq ($(wildcard kernel/msm-4.9),)
+#         ifeq ($(TARGET_BUILD_VARIANT),user)
+#           KERNEL_DEFCONFIG := msm8953-perf_defconfig
+#         else
+#           KERNEL_DEFCONFIG := msm8953_defconfig
+#         endif
+#     endif
+# endif
+
+KERNEL_DEFCONFIG := msm8953-perf_defconfig
 
 ifeq ($(TARGET_KERNEL_SOURCE),)
      TARGET_KERNEL_SOURCE := kernel
@@ -95,41 +97,42 @@ LOCAL_SRC_FILES    := $(LOCAL_MODULE)
 LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
 
-ifeq ($(strip $(BOARD_DYNAMIC_PARTITION_ENABLE)),true)
+# ifeq ($(strip $(BOARD_DYNAMIC_PARTITION_ENABLE)),true)
 include $(CLEAR_VARS)
 LOCAL_MODULE       := fstab.qcom
 LOCAL_MODULE_TAGS  := optional
 LOCAL_MODULE_CLASS := ETC
-    ifeq ($(ENABLE_AB), true)
-      LOCAL_SRC_FILES := fstabs-4.9/fstab_AB_dynamic_partition_variant.qti
-    else
-      LOCAL_SRC_FILES := fstabs-4.9/fstab_non_AB_dynamic_partition_variant.qti
-    endif
+#     ifeq ($(ENABLE_AB), true)
+#       LOCAL_SRC_FILES := fstabs-4.9/fstab_AB_dynamic_partition_variant.qti
+#     else
+#       LOCAL_SRC_FILES := fstabs-4.9/fstab_non_AB_dynamic_partition_variant.qti
+#     endif
+LOCAL_SRC_FILES := fstab.qcom
 LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)
 include $(BUILD_PREBUILT)
-else
-include $(CLEAR_VARS)
-LOCAL_MODULE       := fstab.qcom
-LOCAL_MODULE_TAGS  := optional
-LOCAL_MODULE_CLASS := ETC
-ifneq ($(wildcard kernel/msm-3.18),)
-    ifeq ($(ENABLE_AB), true)
-      LOCAL_SRC_FILES    := fstabs-3.18/fstab_AB_variant.qti
-    else
-      LOCAL_SRC_FILES    := fstabs-3.18/fstab_non_AB_variant.qti
-    endif
-else ifneq ($(wildcard kernel/msm-4.9),)
-    ifeq ($(ENABLE_AB), true)
-      LOCAL_SRC_FILES    := fstabs-4.9/fstab_AB_variant.qti
-    else
-      LOCAL_SRC_FILES    := fstabs-4.9/fstab_non_AB_variant.qti
-    endif
-else
-    $(warning "Unknown kernel")
-endif
-LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)
-include $(BUILD_PREBUILT)
-endif
+# else
+# include $(CLEAR_VARS)
+# LOCAL_MODULE       := fstab.qcom
+# LOCAL_MODULE_TAGS  := optional
+# LOCAL_MODULE_CLASS := ETC
+# ifneq ($(wildcard kernel/msm-3.18),)
+#     ifeq ($(ENABLE_AB), true)
+#       LOCAL_SRC_FILES    := fstabs-3.18/fstab_AB_variant.qti
+#     else
+#       LOCAL_SRC_FILES    := fstabs-3.18/fstab_non_AB_variant.qti
+#     endif
+# else ifneq ($(wildcard kernel/msm-4.9),)
+#     ifeq ($(ENABLE_AB), true)
+#       LOCAL_SRC_FILES    := fstabs-4.9/fstab_AB_variant.qti
+#     else
+#       LOCAL_SRC_FILES    := fstabs-4.9/fstab_non_AB_variant.qti
+#     endif
+# else
+#     $(warning "Unknown kernel")
+# endif
+# LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)
+# include $(BUILD_PREBUILT)
+# endif
 
 include $(CLEAR_VARS)
 LOCAL_MODULE       := gpio-keys.kl
