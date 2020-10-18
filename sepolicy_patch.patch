@@ -1,0 +1,14 @@
+diff --git a/legacy/vendor/common/file_contexts b/legacy/vendor/common/file_contexts
+index 8cef038..650f815 100644
+--- a/legacy/vendor/common/file_contexts
++++ b/legacy/vendor/common/file_contexts
+@@ -720,6 +720,9 @@
+ /vendor/firmware(/.*)?                      u:object_r:vendor_firmware_file:s0
+ /vendor/bt_firmware(/.*)?                   u:object_r:bt_firmware_file:s0
+ /vendor/firmware_mnt(/.*)?                  u:object_r:firmware_file:s0
++/firmware(/.*)?                             u:object_r:firmware_file:s0
++/bt_firmware(/.*)?                          u:object_r:bt_firmware_file:s0
++/persist(/.*)?                              u:object_r:mnt_vendor_file:s0
+ 
+ ##################################
+ #vendor toolbox
